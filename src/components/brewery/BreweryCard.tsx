@@ -1,5 +1,5 @@
-import { Brewery, BreweryCardProp } from '../miscs/Brewery'
-import { capitalizeFirstLetter, googleMapUrl } from '../miscs/utils'
+import { BreweryCardProp } from '../../miscs/Brewery'
+import { capitalizeFirstLetter, googleMapUrl } from '../../miscs/utils'
 
 export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
   return (
