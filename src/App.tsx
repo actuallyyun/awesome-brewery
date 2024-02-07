@@ -28,9 +28,11 @@ const App = () => {
       <div>
         <Search value={searchName} onChange={handleNameSearch} />
       </div>
-      {data?.map((brewery) => {
-        return <BreweryCard brewery={brewery} />
-      })}
+      {error && <p>oops something went wrong...</p>}
+      {data.length > 0 &&
+        data.map((brewery) => {
+          return <BreweryCard brewery={brewery} />
+        })}
     </div>
   )
 }

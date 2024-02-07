@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ApiError, NetworkError } from '../miscs/Error'
 
 export function useFetch<T>(url: string) {
-  const [data, setData] = useState<T[] | null>(null)
+  const [data, setData] = useState<T[]>([])
   const [error, setError] = useState<ApiError | NetworkError | undefined>(
     undefined
   )
