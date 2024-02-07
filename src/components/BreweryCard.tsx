@@ -1,5 +1,5 @@
 import { Brewery, BreweryCardProp } from '../miscs/Brewery'
-import { capitalizeFirstLetter } from '../miscs/utils'
+import { capitalizeFirstLetter, googleMapUrl } from '../miscs/utils'
 
 export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
   return (
@@ -13,8 +13,18 @@ export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
       </p>
       <p>{brewery.phone}</p>
       <p>Type:{capitalizeFirstLetter(brewery.brewery_type)}</p>
-      <a href={brewery.website_url}>{brewery.website_url}</a>
-      <p>View Map</p>
+      <p>
+        <a href={brewery.website_url}>{brewery.website_url}</a>
+      </p>
+      {brewery.latitude && brewery.latitude && (
+        <a
+          href={googleMapUrl(brewery.latitude, brewery.longitude)}
+          target='_blank'
+          rel='noreferrer'
+        >
+          View Map
+        </a>
+      )}
     </div>
   )
 }
