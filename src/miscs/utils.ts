@@ -6,3 +6,8 @@ export function capitalizeFirstLetter(string: string) {
 export function googleMapUrl(latitude: string, longitude: string) {
   return `https://maps.google.com/?q=${latitude},${longitude}`
 }
+
+export function appendSearchUrl(baseURL: string, searchName: string) {
+  return `${baseURL}?by_name=${searchName}`
+}
+
