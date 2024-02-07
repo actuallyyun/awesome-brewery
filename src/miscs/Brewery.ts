@@ -16,3 +16,7 @@ export type Brewery = {
   state: string
   street: string
 }
+
+export type BreweryCardProp = {
+  brewery: Brewery
+}
