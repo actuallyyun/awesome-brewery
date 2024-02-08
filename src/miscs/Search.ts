@@ -1,6 +1,6 @@
-import { FormEvent } from 'react'
+import { ChangeEvent } from 'react'
 
 export type SearchProps = {
   value: string
-  onChange: (e: FormEvent<HTMLInputElement>) => void
+  onChange: (e: ChangeEvent) => void
 }
