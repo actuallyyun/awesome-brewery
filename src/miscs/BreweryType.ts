@@ -1,4 +1,4 @@
-export type Brewery = {
+export type BreweryType = {
   id: string
   name: string
   brewery_type: string
@@ -18,5 +18,5 @@ export type Brewery = {
 }
 
 export type BreweryCardProp = {
-  brewery: Brewery
+  brewery: BreweryType
 }
