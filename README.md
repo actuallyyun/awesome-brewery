@@ -24,6 +24,11 @@ The db also provides endpoint for search by name, and other queries.
 ### Search functionality
 The search functionality is implemented using `useDebounce` hook. It debounces the search input and fetches data only after the user has stopped typing for a certain amount of time.
 
+### Filter by states with autocomplete
+The app uses Material UI's `Autocomplete` component to filter breweries by state. The selected state then triggers a refetch of data from the API and displays the breweries from the selected state.
+
+### Routing
+The app uses `react-router-dom` for routing. It implements dynamic routing to display each brewery's details.
 
 
 ## Disclaimer
