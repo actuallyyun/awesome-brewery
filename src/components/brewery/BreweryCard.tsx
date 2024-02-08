@@ -14,7 +14,7 @@ export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
         {brewery.city},{brewery.state} {brewery.postal_code}
       </p>
       <Link to={`./breweries/${brewery.id}`}>
-        <Button variant='contained'>Learn more</Button>
+        <Button variant='outlined'>Learn more</Button>
       </Link>
     </div>
   )

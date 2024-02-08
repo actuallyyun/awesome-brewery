@@ -3,6 +3,7 @@ import ShowError from '../utils/ShowError'
 import ShowLoading from '../utils/ShowLoading'
 import { BreweryType } from '../../miscs/BreweryType'
 import { capitalizeFirstLetter, googleMapUrl } from '../../miscs/utils'
+import styles from './brewery.module.css'
 
 export type BreweryDetailProp = {
   id: string | undefined
@@ -18,18 +19,18 @@ export default function BreweryDetail({ id }: BreweryDetailProp) {
       {loading && <ShowLoading />}
       {error && <ShowError />}
       {brewery && (
-        <div>
+        <div className={styles.center}>
           <h1>{brewery.name}</h1>
-          <p>{brewery.address_1}</p>
+          <p>Address: {brewery.address_1}</p>
           {brewery.address_2 && <p>{brewery.address_2}</p>}
           {brewery.address_3 && <p>{brewery.address_2}</p>}
           <p>
-            {brewery.city},{brewery.state} {brewery.postal_code}
+            City: {brewery.city},{brewery.state} {brewery.postal_code}
           </p>
-          <p>{brewery.phone}</p>
-          <p>Type:{capitalizeFirstLetter(brewery.brewery_type)}</p>
+          <p>Phone: {brewery.phone}</p>
+          <p>Type: {capitalizeFirstLetter(brewery.brewery_type)}</p>
           <p>
-            <a href={brewery.website_url}>{brewery.website_url}</a>
+            Website: <a href={brewery.website_url}>{brewery.website_url}</a>
           </p>
           {brewery.latitude && brewery.latitude && (
             <a
@@ -37,7 +38,7 @@ export default function BreweryDetail({ id }: BreweryDetailProp) {
               target='_blank'
               rel='noreferrer'
             >
-              View Map
+              <h4>View On Google Map</h4>
             </a>
           )}
         </div>
