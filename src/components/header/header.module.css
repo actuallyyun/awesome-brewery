@@ -1,0 +1,16 @@
+.center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlink{
+    color:#ffc107;
+    font-weight: 900;
+    font-size: xx-large;
+}
+
+.logo{
+    color:#ff6f00;
+}
