@@ -1,6 +1,6 @@
 import Input from '@mui/material/Input'
 
-import { SearchProps } from '../../miscs/Search'
+import { SearchProps } from '../../miscs/SearchType'
 
 export default function Search({ value, onChange }: SearchProps): JSX.Element {
   return (
