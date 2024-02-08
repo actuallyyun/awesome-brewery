@@ -29,7 +29,7 @@ const App = () => {
 
   //const memoSearchName = useMemo(() => setSearchName(searchName), [searchName])
 
-  const { data, loading, error } = useFetch<BreweryType>(url)
+  const { data, loading, error } = useFetch<BreweryType[]>(url)
   console.log({ data, loading, error })
   return (
     <Container maxWidth='md'>
@@ -43,7 +43,7 @@ const App = () => {
       </Grid>
       <Routes>
         <Route path='/' element={<Home data={data} error={error} />}></Route>
-        <Route path='/brewery/:id' element={<Brewery />}></Route>
+        <Route path='/breweries/:breweryId' element={<Brewery />}></Route>
         <Route path='/admin' element={<Admin />}></Route>
       </Routes>
     </Container>

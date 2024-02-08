@@ -7,7 +7,7 @@ export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
   return (
     <div>
       <h1>{brewery.name}</h1>
-      <Link to={`./products/${brewery.id}`}>
+      <Link to={`./breweries/${brewery.id}`}>
         <button>lean more</button>
       </Link>
       <p>{brewery.address_1}</p>
