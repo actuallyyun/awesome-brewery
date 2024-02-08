@@ -1,22 +1,31 @@
-# Breweries App
+# Awesome Breweries
 
-Fetch, display, and search for brewery companies from the given API endpoint, using React and TypeScript
+Looking for breweries? Look no further! Awesome Breweries is a React app that fetches and displays brewery companies from the given API endpoint. It also allows you to search for breweries by name.
 
-## Requirements
+More search and filter functionality is coming soon!
 
-1. Check the documentation at [https://www.openbrewerydb.org/documentation](https://www.openbrewerydb.org/documentation) Fetch and display information of all the companies.
+# See it live
+Awesome Brewery is delpyed on Vercel. [Click here to see it live](https://awesome-brewery.vercel.app/)
 
-2. Have proper display and routing that user can switch to/back from specific company's detailed page
+# How does it work?
 
-3. Create search component to enable user to input text and search for companies by name.
+## Stack
+It is build with React, TypeScript and Material UI. It uses `react-router-dom` for routing and `axios` for fetching data from the API.
 
-4. Use MaterialUI to make your design more appealing and responsive
+## Data
+Data is fetched from open brewery database, [https://www.openbrewerydb.org/documentation](https://www.openbrewerydb.org/documentation).
+The db also provides endpoint for search by name, and other queries.
 
-5. Deploy your application and rewrite README file
+# Projects Highlights
 
-## Optional
+### Created a custom hook for data fetching
+`useFetch()` is a custom hook that fetches data from the given endpoint. It also handles loading and error states.
 
-6. Implement performance optimization where applicable
-7. Use the queries listed in the documentation to sort and limit the returned data and build pagination feature.
+### Search functionality
+<!--The search functionality is implemented using `useDebounce` hook. It debounces the search input and fetches data only after the user has stopped typing for a certain amount of time.-->
 
-8. Create a contact form so that user can send question along with their contact information.
+
+
+## Disclaimer
+This project is created for educational purposes only. It is not intended for commercial use.
+It is part of the [Integrify Finland Full stack web development program](https://www.integrify.io/) and is created and instructed by Anh Nguyen. Big thanks to her and the Integrify team for the support and guidance.
