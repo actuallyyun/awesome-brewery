@@ -14,7 +14,7 @@ import Home from './pages/Home'
 import Admin from './pages/admin'
 import Brewery from './pages/Brewery'
 
-const LISTBREWERIERSURL = 'https://api.openbrewerydb.org/v1/breweries'
+export const LISTBREWERIERSURL = 'https://api.openbrewerydb.org/v1/breweries'
 
 const App = () => {
   const [url, setUrl] = useState<string>(LISTBREWERIERSURL)
@@ -27,22 +27,21 @@ const App = () => {
     setUrl((url) => (url = appendSearchUrl(LISTBREWERIERSURL, e.target.value)))
   }
 
-  //const memoSearchName = useMemo(() => setSearchName(searchName), [searchName])
+  const search = { searchName: searchName, handleSearch: handleNameSearch }
 
-  const { data, loading, error } = useFetch<BreweryType[]>(url)
-  console.log({ data, loading, error })
+  const breweries = useFetch<BreweryType[]>(url)
   return (
     <Container maxWidth='md'>
       <Grid container spacing={2}>
         <Grid xs={12} spacing={4}>
           <Header />
         </Grid>
-        <Grid xs={12} spacing={4}>
-          <Search value={searchName} onChange={handleNameSearch} />
-        </Grid>
       </Grid>
       <Routes>
-        <Route path='/' element={<Home data={data} error={error} />}></Route>
+        <Route
+          path='/'
+          element={<Home breweries={breweries} search={search} />}
+        ></Route>
         <Route path='/breweries/:breweryId' element={<Brewery />}></Route>
         <Route path='/admin' element={<Admin />}></Route>
       </Routes>
