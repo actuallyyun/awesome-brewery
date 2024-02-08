@@ -22,7 +22,7 @@ The db also provides endpoint for search by name, and other queries.
 `useFetch()` is a custom hook that fetches data from the given endpoint. It also handles loading and error states.
 
 ### Search functionality
-<!--The search functionality is implemented using `useDebounce` hook. It debounces the search input and fetches data only after the user has stopped typing for a certain amount of time.-->
+The search functionality is implemented using `useDebounce` hook. It debounces the search input and fetches data only after the user has stopped typing for a certain amount of time.
 
 
 
