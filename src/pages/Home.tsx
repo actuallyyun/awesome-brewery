@@ -4,6 +4,7 @@ import Item from '@mui/material/Grid/'
 import BreweryCard from '../components/brewery/BreweryCard'
 import { BreweryType } from '../miscs/BreweryType'
 import ShowError from '../components/utils/ShowError'
+import ShowNoMatch from '../components/utils/ShowNoMatch'
 import Search from '../components/search/Search'
 import { StateType } from '../miscs/StateType'
 import StateSelect from '../components/search/SelectState'
@@ -34,8 +35,9 @@ export default function Home({ breweries, search, states }: HomeProps) {
         <StateSelect states={states} />
       </Grid>
       <Grid xs={12}>{error && <ShowError />}</Grid>
+      {data?.length === 0 && <ShowNoMatch />}
       {data &&
-        data?.map((brewery, index: number) => {
+        data.map((brewery, index: number) => {
           return (
             <Grid xs={6} md={4} key={index}>
               <Item>

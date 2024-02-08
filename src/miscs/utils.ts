@@ -10,4 +10,11 @@ export function googleMapUrl(latitude: string, longitude: string) {
 export function appendSearchUrl(baseURL: string, searchName: string) {
   return `${baseURL}?by_name=${searchName}`
 }
-
+export function appendStateSelectUrl(
+  baseURL: string,
+  selectedState: string | undefined
+) {
+  return selectedState
+    ? `${baseURL}?by_state=${selectedState.toLowerCase().replace(' ', '_')}`
+    : baseURL
+}
