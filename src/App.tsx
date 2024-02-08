@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Grid from '@mui/material/Unstable_Grid2'
 import Container from '@mui/material/Container'
+import { useDebouncedCallback } from 'use-debounce'
 
 import { useFetch } from './hooks/useFetch'
 import { BreweryType } from './miscs/BreweryType'
@@ -16,9 +17,12 @@ const App = () => {
   const [url, setUrl] = useState<string>(LISTBREWERIERSURL)
   const [searchName, setSearchName] = useState('')
 
+  const debounced = useDebouncedCallback((value) => {
+    setUrl((url) => (url = appendSearchUrl(LISTBREWERIERSURL, value)))
+  }, 3000)
   const handleNameSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchName((n) => (n = e.target.value))
-    setUrl((url) => (url = appendSearchUrl(LISTBREWERIERSURL, e.target.value)))
+    debounced(e.target.value)
   }
 
   const search = { searchName: searchName, handleSearch: handleNameSearch }
