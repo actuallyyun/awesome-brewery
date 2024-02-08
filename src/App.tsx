@@ -10,12 +10,19 @@ import { appendSearchUrl } from './miscs/utils'
 import Header from './components/header/Header'
 import Home from './pages/Home'
 import Brewery from './pages/Brewery'
+import { StateType } from './miscs/StateType'
 
 export const LISTBREWERIERSURL = 'https://api.openbrewerydb.org/v1/breweries'
 
 const App = () => {
   const [url, setUrl] = useState<string>(LISTBREWERIERSURL)
   const [searchName, setSearchName] = useState('')
+  const [state, setState] = useState<StateType | null>(null)
+
+  const handleSelect = (e: any, value: StateType | null) => {
+    setState((val) => (val = value))
+    console.log(value)
+  }
 
   const debounced = useDebouncedCallback((value) => {
     setUrl((url) => (url = appendSearchUrl(LISTBREWERIERSURL, value)))
@@ -27,6 +34,7 @@ const App = () => {
 
   const search = { searchName: searchName, handleSearch: handleNameSearch }
   const breweries = useFetch<BreweryType[]>(url)
+  const states = { state: state, handleStateSelect: handleSelect }
 
   return (
     <Container maxWidth='md'>
@@ -38,7 +46,9 @@ const App = () => {
       <Routes>
         <Route
           path='/'
-          element={<Home breweries={breweries} search={search} />}
+          element={
+            <Home breweries={breweries} search={search} states={states} />
+          }
         ></Route>
         <Route path='/breweries/:breweryId' element={<Brewery />}></Route>
       </Routes>

@@ -3,7 +3,6 @@ import Grid from '@mui/material/Unstable_Grid2'
 import Item from '@mui/material/Grid'
 
 import { SearchProps } from '../../miscs/SearchType'
-import StateSelect from './SelectState'
 
 export default function Search({ value, onChange }: SearchProps): JSX.Element {
   return (
@@ -21,9 +20,7 @@ export default function Search({ value, onChange }: SearchProps): JSX.Element {
         </Item>
       </Grid>
       <Grid xs={3}>
-        <Item>
-          <StateSelect />
-        </Item>
+        <Item></Item>
       </Grid>
     </Grid>
   )

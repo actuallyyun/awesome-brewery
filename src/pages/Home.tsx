@@ -5,6 +5,8 @@ import BreweryCard from '../components/brewery/BreweryCard'
 import { BreweryType } from '../miscs/BreweryType'
 import ShowError from '../components/utils/ShowError'
 import Search from '../components/search/Search'
+import { StateType } from '../miscs/StateType'
+import StateSelect from '../components/search/SelectState'
 
 type HomeProps = {
   breweries: {
@@ -16,15 +18,20 @@ type HomeProps = {
     searchName: string
     handleSearch(e: React.ChangeEvent<HTMLInputElement>): void
   }
+  states: {
+    state: StateType | null
+    handleStateSelect(event: any, value: StateType | null): void
+  }
 }
 
-export default function Home({ breweries, search }: HomeProps) {
+export default function Home({ breweries, search, states }: HomeProps) {
   const { data, loading, error } = breweries
   const { searchName, handleSearch } = search
   return (
     <Grid container spacing={2}>
       <Grid xs={12} spacing={4}>
         <Search value={searchName} onChange={handleSearch} />
+        <StateSelect states={states} />
       </Grid>
       <Grid xs={12}>{error && <ShowError />}</Grid>
       {data &&

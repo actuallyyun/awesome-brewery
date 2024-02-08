@@ -1,46 +1,58 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 
-export default function StateSelect() {
+import { StateType } from '../../miscs/StateType'
+
+export type StateSelectProp = {
+  states: {
+    state: StateType | null
+    handleStateSelect(event: any, value: StateType | null): void
+  }
+}
+
+export default function StateSelect({ states }: StateSelectProp) {
+  const { state, handleStateSelect } = states
   return (
-    <Autocomplete
-      id='state-select'
-      sx={{ width: 300 }}
-      options={states}
-      autoHighlight
-      getOptionLabel={(option) => option.name}
-      renderOption={(props, option) => (
-        <Box
-          component='li'
-          sx={{ '& > img': { mr: 2, flexShrink: 0 } }}
-          {...props}
-        >
-          {option.name} ({option.abbreviation})
-        </Box>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label='Choose a state'
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password' // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
+    <>
+      <div>{`user choosed value: ${
+        state !== null ? `'${state}'` : 'null'
+      }`}</div>
+
+      <br />
+      <Autocomplete
+        value={state}
+        onChange={(event: any, value: StateType | null) =>
+          handleStateSelect(event, value)
+        }
+        id='state-select'
+        sx={{ width: 300 }}
+        options={usStates}
+        autoHighlight
+        getOptionLabel={(option) => option.name}
+        renderOption={(props, option) => (
+          <Box component='li' {...props}>
+            {option.name} ({option.abbreviation})
+          </Box>
+        )}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label='Choose a state'
+            inputProps={{
+              ...params.inputProps,
+              autoComplete: 'new-password' // disable autocomplete and autofill
+            }}
+          />
+        )}
+      />
+    </>
   )
 }
 
-interface StateType {
-  name: string
-  abbreviation: string
-}
-
 //https://gist.github.com/mshafrir/2646763
-const states: readonly StateType[] = [
+const usStates: readonly StateType[] = [
   {
     name: 'Alabama',
     abbreviation: 'AL'
