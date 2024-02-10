@@ -8,6 +8,8 @@ import ShowNoMatch from '../components/utils/ShowNoMatch'
 import Search from '../components/search/Search'
 import { StateType } from '../miscs/StateType'
 import StateSelect from '../components/search/SelectState'
+import CustomizedButtons from '../styles/mui/MUIComponent'
+import ContactForm from '../components/forms/ContactForm'
 
 type HomeProps = {
   breweries: {
@@ -31,6 +33,7 @@ export default function Home({ breweries, search, states }: HomeProps) {
   return (
     <Grid container spacing={2}>
       <Grid xs={12} spacing={4}>
+        <CustomizedButtons />
         <Search value={searchName} onChange={handleSearch} />
         <StateSelect states={states} />
       </Grid>
@@ -46,6 +49,10 @@ export default function Home({ breweries, search, states }: HomeProps) {
             </Grid>
           )
         })}
+      <Grid xs={12}>
+        <h1>Contact Us</h1>
+        <ContactForm />
+      </Grid>
     </Grid>
   )
 }
