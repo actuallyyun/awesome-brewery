@@ -16,11 +16,6 @@ export default function StateSelect({ states }: StateSelectProp) {
   const { state, handleStateSelect } = states
   return (
     <>
-      <div>{`user choosed value: ${
-        state !== null ? `'${state}'` : 'null'
-      }`}</div>
-
-      <br />
       <Autocomplete
         value={state}
         onChange={(event: any, value: StateType | null) =>

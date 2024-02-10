@@ -10,6 +10,7 @@ import { StateType } from '../miscs/StateType'
 import StateSelect from '../components/search/SelectState'
 import CustomizedButtons from '../styles/mui/MUIComponent'
 import ContactForm from '../components/forms/ContactForm'
+import { Stack } from '@mui/material'
 
 type HomeProps = {
   breweries: {
@@ -33,9 +34,10 @@ export default function Home({ breweries, search, states }: HomeProps) {
   return (
     <Grid container spacing={2}>
       <Grid xs={12} spacing={4}>
-        <CustomizedButtons />
-        <Search value={searchName} onChange={handleSearch} />
-        <StateSelect states={states} />
+        <Stack spacing={2}>
+          <Search value={searchName} onChange={handleSearch} />
+          <StateSelect states={states} />
+        </Stack>
       </Grid>
       <Grid xs={12}>{error && <ShowError />}</Grid>
       {data?.length === 0 && <ShowNoMatch />}
