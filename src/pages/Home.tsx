@@ -8,9 +8,9 @@ import ShowNoMatch from '../components/utils/ShowNoMatch'
 import Search from '../components/search/Search'
 import { StateType } from '../miscs/StateType'
 import StateSelect from '../components/search/SelectState'
-import CustomizedButtons from '../styles/mui/MUIComponent'
 import ContactForm from '../components/forms/ContactForm'
 import { Stack } from '@mui/material'
+import ShowLoading from '../components/utils/ShowLoading'
 
 type HomeProps = {
   breweries: {
@@ -40,6 +40,7 @@ export default function Home({ breweries, search, states }: HomeProps) {
         </Stack>
       </Grid>
       <Grid xs={12}>{error && <ShowError />}</Grid>
+      <Grid xs={12}>{loading && <ShowLoading />}</Grid>
       {data?.length === 0 && <ShowNoMatch />}
       {data &&
         data.map((brewery, index: number) => {
