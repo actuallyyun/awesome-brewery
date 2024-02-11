@@ -1,8 +1,6 @@
 # Awesome Breweries
 
-Looking for breweries? Look no further! Awesome Breweries is a React app that fetches and displays brewery companies from the given API endpoint. It also allows you to search for breweries by name.
-
-More search and filter functionality is coming soon!
+Looking for breweries? Look no further! Awesome Breweries is a React app that fetches and displays brewery companies from the given API endpoint. It also allows you to search for breweries by name, and filter breweries by the state it's in.
 
 # See it live
 Awesome Brewery is delpyed on Vercel. [Click here to see it live](https://awesome-brewery.vercel.app/)
@@ -30,7 +28,13 @@ The app uses Material UI's `Autocomplete` component to filter breweries by state
 ### Routing
 The app uses `react-router-dom` for routing. It implements dynamic routing to display each brewery's details.
 
+### Error handling
+It handles errors from the API with customized Error class and displays a message to the user.
 
-## Disclaimer
+### Contact form
+It leverages `react-hook-form` and `yup` to create a contact form. The form is not yet connected to a backend, but it is fully functional and validates the input.
+
+
+## Disclaimer & Acknowledgements
 This project is created for educational purposes only. It is not intended for commercial use.
 It is part of the [Integrify Finland Full stack web development program](https://www.integrify.io/) and is created and instructed by Anh Nguyen. Big thanks to her and the Integrify team for the support and guidance.
