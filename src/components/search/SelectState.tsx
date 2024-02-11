@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
 import Autocomplete from '@mui/material/Autocomplete'
 
-import { StateType } from '../../miscs/StateType'
+import { StateType } from '../../miscs/types/State'
 
 export type StateSelectProp = {
   states: {

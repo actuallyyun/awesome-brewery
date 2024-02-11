@@ -1,7 +1,7 @@
 import { useFetch } from '../../hooks/useFetch'
 import ShowError from '../utils/ShowError'
 import ShowLoading from '../utils/ShowLoading'
-import { BreweryType } from '../../miscs/BreweryType'
+import { BreweryType } from '../../miscs/types/Brewery'
 import { capitalizeFirstLetter, googleMapUrl } from '../../miscs/utils'
 import styles from './brewery.module.css'
 
@@ -10,7 +10,6 @@ export type BreweryDetailProp = {
 }
 
 export default function BreweryDetail({ id }: BreweryDetailProp) {
-  console.log({ id })
   const url = `https://api.openbrewerydb.org/v1/breweries/${id}`
   const { data, loading, error } = useFetch<BreweryType>(url)
   const brewery = data

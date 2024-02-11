@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@mui/material'
 
-import { BreweryCardProp } from '../../miscs/BreweryType'
+import { BreweryCardProp } from '../../miscs/types/Brewery'
 
 export default function BreweryCard({ brewery }: BreweryCardProp): JSX.Element {
   return (

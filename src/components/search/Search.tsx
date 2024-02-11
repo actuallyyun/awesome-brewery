@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@mui/icons-material'
 import { Divider, IconButton, InputBase, Paper } from '@mui/material'
 
-import { SearchProps } from '../../miscs/SearchType'
+import { SearchProps } from '../../miscs/types/Search'
 
 const Search = ({ value, onChange }: SearchProps): JSX.Element => {
   return (
@@ -25,24 +25,3 @@ const Search = ({ value, onChange }: SearchProps): JSX.Element => {
 }
 
 export default Search
-//export default function Search({ value, onChange }: SearchProps): JSX.Element {
-//  return (
-//    <Grid container spacing={2}>
-//      <Grid xs={6}>
-//        <Item>
-//          <Input
-//            fullWidth
-//            type='text'
-//            value={value}
-//            onChange={onChange}
-//            placeholder='company name'
-//            aria-label='title'
-//          />
-//        </Item>
-//      </Grid>
-//      <Grid xs={3}>
-//        <Item></Item>
-//      </Grid>
-//    </Grid>
-//  )
-//}
